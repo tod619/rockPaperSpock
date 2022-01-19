@@ -51,6 +51,21 @@ h2 {
   user-select: none;
 }
 
+#player .far,
+#player .choice {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+#computer .far,
+#computer .choice {
+  color: rgb(235, 43, 52);
+}
+
+.selected {
+  color: black !important;
+}
+
 .reset-icon {
   font-size: 30px;
   cursor: pointer;
@@ -73,6 +88,7 @@ h2 {
 @media screen and (max-width: 600px) {
   .game-container {
     height: 580px;
+    width: 95%;
   }
 
   h1 {
