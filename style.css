@@ -57,6 +57,11 @@ h2 {
   cursor: pointer;
 }
 
+#player .far:last-of-type,
+#computer .far:last-of-type {
+  margin-right: 0;
+}
+
 #computer .far,
 #computer .choice {
   color: rgb(235, 43, 52);
