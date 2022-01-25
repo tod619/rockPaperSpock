@@ -26,6 +26,8 @@ const choices = {
   spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
 };
 
+let computerChoice = ''
+
 // Reset all selected icons
 function resetSelected() {
   allGameIcons.forEach((icon) => {
@@ -33,9 +35,68 @@ function resetSelected() {
   })
 }
 
+// Random computer choice
+function computerRandomChoice() {
+  const computerChoiceNumber = Math.random()
+  if(computerChoiceNumber < 0.2) {
+    computerChoice = 'rock'
+  } else if(computerChoiceNumber <= 0.4) {
+    computerChoice = 'paper'
+  } else if(computerChoiceNumber <= 0.6) {
+    computerChoice = 'scissors'
+  } else if(computerChoiceNumber <= 0.8) {
+    computerChoice = 'lizard'
+  } else {
+    computerChoice = 'spock'
+  }
+  
+}
+
+// passing computer selection value and styling icon
+function displayComputerChoice() {
+  // Add 'selected' styling & playerChoice
+  switch(computerChoice) {
+    case 'rock':
+      computerRock.classList.add('selected')
+      computerChoiceEl.textContent = ' --- Rock'
+      break
+
+      case 'paper':
+      computerPaper.classList.add('selected')
+      computerChoiceEl.textContent = ' --- Paper'
+      break
+
+      case 'scissors':
+      computerScissors.classList.add('selected')
+      computerChoiceEl.textContent = ' --- scissors'
+      break
+
+      case 'lizard':
+      computerLizard.classList.add('selected')
+      computerChoiceEl.textContent = ' --- Lizard'
+      break
+
+      case 'spock':
+      computerSpock.classList.add('selected')
+      computerChoiceEl.textContent = ' --- Spock'
+      break
+
+      default:
+        break
+
+  }
+}
+
+// Call function to process turn
+function checkResult() {
+  resetSelected()
+  computerRandomChoice()
+  displayComputerChoice()
+}
+
 // passing player selection value and styling icon
 function select(playerChoice) {
-  resetSelected()
+  checkResult()
   // Add 'selected' styling & playerChoice
   switch(playerChoice) {
     case 'rock':
@@ -66,6 +127,7 @@ function select(playerChoice) {
       default:
         break
 
-
   }
 }
+
+
